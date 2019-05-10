@@ -1,0 +1,37 @@
+<html>
+<body>
+<input type="text" id="sample"/>
+<input type="button" value="Go" onclick="multiply()"/>
+<ol>
+<div id="input_box_loop_goes_here"> </div>
+<div id="output"></div>
+</ol>
+<script>
+
+
+function multiply(){
+var range = document.getElementById('sample').value;
+var code = "";
+for(var i=0;i<range;i++){
+    code += "<li><input type=\"text\" id=\"name"+(i+1)+"\"/></li>";
+    }
+    code +="<br/><input type=\"button\" value=\"Get Output\" onclick=\"redirect()\"/>"
+    document.getElementById("input_box_loop_goes_here").innerHTML = code;
+}
+
+function redirect(){
+var range = document.getElementById('sample').value;
+var names = "";
+for(var i=0;i<range;i++){
+var id = "name"+(i+1);
+names += document.getElementById(id).value+" ";
+}
+var url = "http://0.0.0.0:5004/"+names;
+window.location.replace(url);
+}
+</script>
+</body>
+</html>
+
+
+
